@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.Scope;
 
 import com.jay.entity.BaseballGame;
 import com.jay.entity.Cubs;
@@ -18,6 +20,7 @@ import com.jay.entity.Team;
 @Configuration
 //@Import(InfrastructureConfig.class)
 @ComponentScan(basePackages= "com.jay")
+@EnableAspectJAutoProxy
 public class AppConfig {
 	
 	@Autowired
@@ -32,6 +35,7 @@ public class AppConfig {
 	public Team away;
 	
 	@Bean
+	//@Scope("prototype")
 	//public Game game(DataSource dataSource) {
 	public Game game() {
 		//return new BaseballGame(redSox(), cubs());

@@ -10,4 +10,8 @@ public class Cubs implements Team{
 		return "Chicago Cubs";
 	}
 
+	@Override
+	public String toString() {
+		return "Cubs [getName()=" + getName() + "]";
+	}
 }

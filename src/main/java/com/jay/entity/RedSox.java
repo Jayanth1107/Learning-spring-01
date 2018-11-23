@@ -10,4 +10,10 @@ public class RedSox implements Team{
 		return "Boston RedSox";
 	}
 
+	@Override
+	public String toString() {
+		return "RedSox [getName()=" + getName() + "]";
+	}
+	
+
 }

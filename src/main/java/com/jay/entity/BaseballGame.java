@@ -1,5 +1,7 @@
 package com.jay.entity;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.sql.DataSource;
 
 public class BaseballGame implements Game{
@@ -14,13 +16,23 @@ public class BaseballGame implements Game{
 		this.awayTeam=awayTeam;
 	}
 	
+	@PostConstruct
+	public void startGame() {
+		System.out.println("Playing national anthem");
+	}
+	
+	@PreDestroy
+	public void endGame() {
+		System.out.println("Closing ceremony");
+	}
+	
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
 
 	@Override
 	public void setHomeTeam(Team homeTeam) {
-		this.setHomeTeam(homeTeam);
+		this.homeTeam=homeTeam;
 	}
 
 	@Override
@@ -42,4 +54,11 @@ public class BaseballGame implements Game{
 	public String playGame() {
 		return Math.random() < 0.5? getHomeTeam().getName() : getAwayTeam().getName();
 	}
+
+	@Override
+	public String toString() {
+		return "BaseballGame [homeTeam=" + homeTeam + ", awayTeam=" + awayTeam + ", playGame()=" + playGame() + "]";
+	}
+	
+	
 }
