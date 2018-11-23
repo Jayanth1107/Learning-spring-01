@@ -10,7 +10,7 @@ public class RunDemoWithSpring {
 		//ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 		Game game = context.getBean("game", Game.class);
-		System.out.println(game.playGame());
+		//System.out.println(game.playGame());
 		
 		Team cubs = context.getBean("cubs", Team.class);
 		Team royals = context.getBean("royals", Team.class);
